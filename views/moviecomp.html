@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Movie Comparison Results</title>
+<style>
+body { text-align: center; padding-top: 7%; background: #ffd580; }
+h1 { text-align: center; font-size: 28px; border: thin solid black; }
+p, label { font-weight: bold; line-height: 1.6; }
+p2 { font-size: 45px; font-weight: bold; line-height: 2.4; }
+button { padding: 10px 20px; font-size: 16px; }
+</style>
+</head>
+<body>
+<h1>{{movieTitle}}</h1>
+<p>Your Score: {{user_score}}</p>
+<p>Rotten Tomatoes Score: {{rotten}}</p>
+<p>My Score: {{myscore}}</p>
+<p>Audience Score: {{audience}}</p>
+<br>
+<a href="/movie">Try another movie</a>
+</body>
+</html>

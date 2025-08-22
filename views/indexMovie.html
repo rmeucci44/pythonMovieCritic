@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Movie Critic Comparison</title>
+<style>
+body { text-align: center; padding-top: 7%; background: #ffd580; }
+h1 { text-align: center; font-size: 28px; border: thin solid black; }
+p2 { font-size: 45px; font-weight: bold; line-height: 2.4; }
+label { line-height: 2.5; }
+</style>
+</head>
+<body>
+<h1>Movie Critic Comparison:<br>The People vs Movie Critics</h1>
+<p><i>Please give your score out of 100.</i></p>
+
+<form action="/moviecomp" method="post">
+    <label>Your Score:</label>
+    <input type="number" value="0" name="value" min="0" max="100" />
+
+    <!-- Hidden fields with movie info -->
+    <input type="hidden" value="{{movie['rotten_score']}}" name="movieRottenScore" />
+    <input type="hidden" value="{{movie['my_score']}}" name="movieMyScore" />
+    <input type="hidden" value="{{movie['audience_score']}}" name="movieAudience" />
+    <input type="hidden" value="{{movie['films']}}" name="movieTitle" />
+
+    <br><br>
+    <button type="submit">Submit</button>
+    <br><br>
+    <p2>{{movie['films']}}</p2>
+</form>
+</body>
+</html>
