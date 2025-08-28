@@ -3,11 +3,11 @@ import csv
 import os
 import random
 
-# Path to CSV inside the 'views' folder
+#Path to CSV inside the 'views' folder
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CSV_PATH = os.path.join(BASE_DIR, "views", "movielist.csv")
 
-# Function to load movies from CSV
+#Function to load movies from CSV
 def load_movies():
     movies = []
     try:
@@ -20,12 +20,12 @@ def load_movies():
         print(f"CSV file not found at {CSV_PATH}")
     return movies
 
-# Root redirects to /movie
+#Root redirects to /movie
 @route('/')
 def home():
     return redirect('/movie')
 
-# Show a random movie on /movie
+#Show a random movie on /movie
 @route('/movie')
 def movie():
     movies = load_movies()
@@ -34,7 +34,7 @@ def movie():
     movie_picked = random.choice(movies)
     return template("indexMovie.html", movie=movie_picked)
 
-# Process form submission
+#Process form submission
 @post('/moviecomp')
 def results():
     user_score = request.forms.get("value")
@@ -50,10 +50,10 @@ def results():
                     myscore=myscore,
                     audience=audience)
 
-# WSGI application
+#Web server gateway
 application = default_app()
 
-# Start local server if running directly
+#Start local server if running directly
 if __name__ == "__main__":
     from bottle import run
     run(app=application, host='localhost', port=8080, debug=True, reloader=True)
